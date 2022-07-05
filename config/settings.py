@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'pages',
     'products',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -134,4 +135,12 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+# Email Settings
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587 #this port is just for gmail
+EMAIL_HOST_USER = 's.talebi.sut@gmail.com'
+EMAIL_HOST_PASSWORD = 'galglixrxrsdsxsj'
+EMAIL_USE_TLS = True
+
 
