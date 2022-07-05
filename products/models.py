@@ -9,7 +9,7 @@ class Product(models.Model):
         ('adlt', 'adults'),
         ('boy', 'boys'),
         ('girl', 'girls'),
-        ('man', 'mans'),
+        ('man', 'men'),
         ('wom', 'women'),
         ('sprt', 'sport'),
         ('csl', 'casual'),
@@ -20,7 +20,7 @@ class Product(models.Model):
     )
     title = models.CharField(max_length=200)
     description = models.TextField()
-    price = models.IntegerField()
+    price = models.DecimalField(decimal_places=2, max_digits=5)
     brand = models.CharField(max_length=200)
     color = models.CharField(max_length=200)
     created_date = models.DateTimeField(auto_now_add=True)

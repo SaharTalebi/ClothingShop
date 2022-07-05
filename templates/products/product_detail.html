@@ -1,0 +1,129 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block title %}Product Detail{% endblock title %}
+
+{% block content %}
+
+    <!-- Single Starts Here -->
+    <div class="single-product">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-heading">
+                <div class="line-dec"></div>
+                <h1>{{single_product.title}} Details</h1>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="product-slider">
+                    <div id="slider" class="flexslider">
+                        <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                            <ul class="slides" >
+                                <li style="width: 400px; margin-right: 0px; float: left; display: block;">
+                                    <img src="{{single_product.picture_2.url}}" draggable="false"/>
+                                </li>
+                            </ul>
+                        </div>
+                        {% comment %} <ul class="flex-direction-nav">
+                            <li class="flex-nav-prev">
+                                <a href="#" class="flex-prev">"Previous"</a>
+                            </li>
+                            <li class="flex-nav-next">
+                                <a href="#" class="flex-next flex-disabled" tabindex="-1">"Next"</a>
+                            </li>
+                        </ul> {% endcomment %}
+                    </div>
+                    {% comment %} <div id="carousel" class="flexslider">
+                        <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                            <ul class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(-215px, 0px, 0px);">
+                                <li style="width: 210px; margin-right: 5px; float: left; display: block;">
+                                    <img src="{{single_product.picture_1.url}}" draggable="false"/>
+                                </li>
+                                {% if single_product.picture_2 %}
+                                    <li style="width: 210px; margin-right: 5px; float: left; display: block;">
+                                        <img src="{{single_product.picture_2.url}}" draggable="false"/>
+                                    </li>
+                                {% endif %}
+                                {% if single_product.picture_3 %}
+                                    <li style="width: 210px; margin-right: 5px; float: left; display: block;">
+                                    <img src="{{single_product.picture_3.url}}" draggable="false"/>
+                                    </li>
+                                {% endif %}
+                                {% if single_product.picture_4 %}
+                                    <li style="width: 210px; margin-right: 5px; float: left; display: block;">
+                                    <img src="{{single_product.picture_4.url}}" draggable="false"/>
+                                    </li>
+                                {% endif %} 
+                                <!-- items mirrored twice, total of 12 -->
+                            </ul>
+                        </div>
+                        <ul class="flex-direction-nav">
+                            <li class="flex-nav-prev">
+                                <a href="#" class="flex-prev">"Previous"</a>
+                            </li>
+                            <li class="flex-nav-next">
+                                <a href="#" class="flex-next flex-disabled" tabindex="-1">"Next"</a>
+                            </li>
+                        </ul>
+                    </div>  {% endcomment %}
+                </div>
+            </div>
+            <div class="col-md-6">
+              <div class="right-content">
+                <h4>{{single_product.title}}: {{single_product.brand}}</h4>
+                <h6>${{single_product.price}}</h6>
+                <p>{{single_product.description}}</p>
+                <span>7 left on stock</span>
+                <form action="" method="get">
+                  <label for="quantity">Quantity:</label>
+                  <input name="quantity" type="quantity" class="quantity-text" id="quantity" 
+                      onfocus="if(this.value == '1') { this.value = ''; }" 
+                      onBlur="if(this.value == '') { this.value = '1';}"
+                      value="1">
+                  <input type="submit" class="button" value="Order Now!">
+                </form>
+                <div class="down-content">
+                  <div class="categories">
+                    <h6>Category: <span>{{single_product.features}}</span></h6>
+                  </div>
+                  <div class="share">
+                    <h6>Share: <span><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-twitter"></i></a></span></h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- Single Page Ends Here -->
+  
+    <!-- Similar Starts Here -->
+    <div class="featured-items">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-heading">
+                <div class="line-dec"></div>
+                <h1>You May Also Like</h1>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="owl-carousel owl-theme">
+                  {% for product in products %}
+                    <a href="{% url 'product_detail' product.id %}">
+                        <div class="featured-item">
+                            <img src="{{product.picture_1.url}}" alt="Item 1">
+                            <h4>{{product.title}}: {{product.brand}}</h4>
+                            <h6>${{product.price}}</h6>
+                        </div>
+                    </a>
+                  {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- Similar Ends Here -->
+
+{% endblock content %}
