@@ -25,48 +25,7 @@
                                 </li>
                             </ul>
                         </div>
-                        {% comment %} <ul class="flex-direction-nav">
-                            <li class="flex-nav-prev">
-                                <a href="#" class="flex-prev">"Previous"</a>
-                            </li>
-                            <li class="flex-nav-next">
-                                <a href="#" class="flex-next flex-disabled" tabindex="-1">"Next"</a>
-                            </li>
-                        </ul> {% endcomment %}
                     </div>
-                    {% comment %} <div id="carousel" class="flexslider">
-                        <div class="flex-viewport" style="overflow: hidden; position: relative;">
-                            <ul class="slides" style="width: 800%; transition-duration: 0s; transform: translate3d(-215px, 0px, 0px);">
-                                <li style="width: 210px; margin-right: 5px; float: left; display: block;">
-                                    <img src="{{single_product.picture_1.url}}" draggable="false"/>
-                                </li>
-                                {% if single_product.picture_2 %}
-                                    <li style="width: 210px; margin-right: 5px; float: left; display: block;">
-                                        <img src="{{single_product.picture_2.url}}" draggable="false"/>
-                                    </li>
-                                {% endif %}
-                                {% if single_product.picture_3 %}
-                                    <li style="width: 210px; margin-right: 5px; float: left; display: block;">
-                                    <img src="{{single_product.picture_3.url}}" draggable="false"/>
-                                    </li>
-                                {% endif %}
-                                {% if single_product.picture_4 %}
-                                    <li style="width: 210px; margin-right: 5px; float: left; display: block;">
-                                    <img src="{{single_product.picture_4.url}}" draggable="false"/>
-                                    </li>
-                                {% endif %} 
-                                <!-- items mirrored twice, total of 12 -->
-                            </ul>
-                        </div>
-                        <ul class="flex-direction-nav">
-                            <li class="flex-nav-prev">
-                                <a href="#" class="flex-prev">"Previous"</a>
-                            </li>
-                            <li class="flex-nav-next">
-                                <a href="#" class="flex-next flex-disabled" tabindex="-1">"Next"</a>
-                            </li>
-                        </ul>
-                    </div>  {% endcomment %}
                 </div>
             </div>
             <div class="col-md-6">
@@ -74,15 +33,6 @@
                 <h4>{{single_product.title}}: {{single_product.brand}}</h4>
                 <h6>${{single_product.price}}</h6>
                 <p>{{single_product.description}}</p>
-                <span>7 left on stock</span>
-                <form action="" method="get">
-                  <label for="quantity">Quantity:</label>
-                  <input name="quantity" type="quantity" class="quantity-text" id="quantity" 
-                      onfocus="if(this.value == '1') { this.value = ''; }" 
-                      onBlur="if(this.value == '') { this.value = '1';}"
-                      value="1">
-                  <input type="submit" class="button" value="Order Now!">
-                </form>
                 <div class="down-content">
                   <div class="categories">
                     <h6>Category: <span>{{single_product.features}}</span></h6>
